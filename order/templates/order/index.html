@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title> Hotel Navdurga | Menu  </title>
+{% endblock %}
+
+{% block body %}
+    <section class="contact spad">
+        <div class="container"  style="background-image: url('/static/img/menu-bg4.jpg'); background-repeat: repeat-y; background-size: contain;" >
+                <h2> Our Menu </h2> <br>
+
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 col-sm-7" >
+                          <div class="table-responsive" >
+                            <table class="table" >
+                                <tbody>
+                    {% for list_item in list1 %}
+                              <tr>  <td> <h4> {{ list_item.0.category }} </h4>  </td> </tr>
+                    {% if request.user.is_authenticated %}
+                            {% for item in list_item %}
+                              <tr>
+                              <td> {{ forloop.counter }}. </td>
+                              <td> {{ item }}       </td>
+                              <td> {{ item.price }} </td>
+                              <td> <a href="{% url 'order:cart-add' item.pk %}" > Add </a> </td>
+                              </tr>
+                            {% endfor %}
+                    {% else %}
+
+                            {% for item in list_item %}
+                              <tr>
+                              <td> {{ forloop.counter }}. </td>
+                              <td> {{ item }} </td>
+                              <td> {{ item.price }} </td>
+                              </tr>
+                            {% endfor %}
+
+                    {% endif %}
+                    {% endfor %}
+                             </tbody>
+                             </table>
+                             </div>
+</div>
+                <div class="col-lg-6 col-md-6 col-sm-7">
+                    <div class="table-responsive" >
+                            <table class="table" >
+                                <tbody>
+                    {% for list_item in list2 %}
+                              <tr>  <td> <h4> {{ list_item.0.category }} </h4>  </td> </tr>
+                    {% if request.user.is_authenticated %}
+                            {% for item in list_item %}
+                              <tr>
+                              <td> {{ forloop.counter }}. </td>
+                              <td> {{ item }}       </td>
+                              <td> {{ item.price }} </td>
+                              <td> <a href="{% url 'order:cart-add' item.pk %}" > Add </a> </td>
+                              </tr>
+                            {% endfor %}
+                    {% else %}
+
+                            {% for item in list_item %}
+                              <tr>
+                              <td> {{ forloop.counter }}. </td>
+                              <td> {{ item }} </td>
+                              <td> {{ item.price }} </td>
+                              </tr>
+                            {% endfor %}
+
+                    {% endif %}
+                    {% endfor %}
+                             </tbody>
+                             </table>
+                             </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<br> <br> <br>
+
+{% endblock %}

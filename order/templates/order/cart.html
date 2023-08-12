@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title> Hotel Navdurga | Cart  </title>
+{% endblock %}
+
+{% block body %}
+
+
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-5">
+
+                         <h4>  Hello {{ prsn.name }} </h4>
+                         <h3>  Your Food Cart </h3>
+                         <br>
+
+                          <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th> Sr. no. </th>
+                                                <th> Item </th>
+                                                <th> Price </th>
+                                                <th> Quantity </th>
+                                                <th> Total </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                              {% for item,total in items %}
+                      <tr>
+                              <td> {{ forloop.counter }}. </td>
+                              <td> {{ item.item }} </td>
+                              <td> {{ item.item.price }} </td>
+                              <td>  <a href="{% url 'order:cart-minus' item.pk %}" > - </a>
+                                    {{ item.quantity }}
+                                    <a href="{% url 'order:cart-plus' item.pk %}" > + </a>
+                              </td>
+                              <td> {{ total }} </td>
+                      </tr>
+                             {% endfor %}
+
+                      <tr>
+                              <td colspan=4 > <center>  <strong> Total </strong> </center> </td>
+                              <td> <strong> {{  g_total  }} </strong>  </td>
+                      </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+<br>
+     <a href="{% url 'order:checkout' %}">  Proceed To Pay </a>
+            </div>
+        </div>
+        </div>
+        </section>
+
+{% endblock %}

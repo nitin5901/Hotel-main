@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title> Hotel Navdurga | Rate Us  </title>
+{% endblock %}
+
+{% block body %}
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 col-sm-7">
+                    <div class="contact__form">
+                        <h2> Rate Us </h2>
+                        <form action="#">
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-4">
+                                <label> Name </label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-8">
+                               <input type="text" placeholder="Your Name" name="name" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-4">
+                                <label> Phone </label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-8">
+                                <input type="number" placeholder="Phone Number" required>
+                            </div>
+                        </div>
+
+
+                        <div class="row " >
+                            <div class="col-lg-3 col-md-3 col-sm-4">
+                                <label> Email </label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-8">
+                               <input type="email" placeholder="Your Email ID (optional)" name="email" >
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-4">
+                                <label> Number of Guests </label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-8">
+                                <input type="number" placeholder="Number of guests" required>
+                            </div>
+                        </div>
+
+
+                        <div class="row " >
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label> Expected Date of Visit </label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <label> Expected Time of Visit </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input type="date" required>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input type="time" required>
+                            </div>
+                        </div>
+
+                            <button type="submit"> Reserve Table </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5  offset-lg-1 col-md-6 col-sm-5">
+                    <div class="contact__widget">
+                        <div class="contact__widget__item">
+                            <h4> Contact Us </h4>
+                            <ul>
+                                <li> +91 91164 55151 </li>
+                                <li> +91 94922 98000 </li>
+                            </ul>
+                        </div>
+                        <div class="contact__widget__item">
+                            <h4>Address</h4>
+                            <p>  Nagaur Road , Aau <br> Rajasthan </p>
+                        </div>
+                        <div class="contact__widget__time">
+                            <h4>Opentime</h4>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="contact__widget__time__item">
+                                        <ul>
+                                            <li>Monday - Friday</li>
+                                            <li><span> 10 am - 9 pm </span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="contact__widget__time__item">
+                                        <ul>
+                                            <li>Saturday - Sunday</li>
+                                            <li><span> 9 am - 11 pm</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title> Hotel Navdurga | Menu  </title>
+{% endblock %}
+
+{% block body %}
+
+<section class="contact spad">
+        <div class="container">
+
+                <div class="col-lg-6 col-md-6 col-sm-7">
+                <h2>  Menu- List </h2>
+                          <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th> Sr. no. </th>
+                                                <th> Item </th>
+                                                <th> Price </th>
+                                                <th> Edit </th>
+                                                <th> Delete </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                        {% for item in items %}
+                          <tr>
+                              <td> {{ forloop.counter }}. </td>
+                              <td> {{ item }}       </td>
+                              <td> {{ item.price }} </td>
+                              <td> <a href="{% url 'order:item-edit' item.pk %}" > Edit </a> </td>
+                              <td> <a href="{% url 'order:item-del' item.pk %}" > Delete </a> </td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                                    </table>
+                          </div>
+                </div>
+        </div>
+</section>
+
+{% endblock %}

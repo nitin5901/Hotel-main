@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title> Hotel Navdurga | Admin Page  </title>
+{% endblock %}
+
+{% block body %}
+
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="about__content">
+                <div class="row">
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-7">
+                        1. <a href="{% url 'order:item-list' %}">  View Menu List </a> <br>
+                        2. <a href="{% url 'order:item-add' %}">  Add Item to Menu </a> <br> <br>
+
+                        3. <a href="#">  View all Orders </a> <br>
+                        4. <a href="#">  View all Bookings </a> <br> <br>
+
+                        <br> <br> <br>
+                        <br> <br> <br>
+                        <br> <br> <br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+<br> <br>
+
+{% endblock %}

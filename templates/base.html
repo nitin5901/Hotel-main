@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hiroto Template">
+    <meta name="keywords" content="Hiroto, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block head %}
+    <title> Hotel Navdurga </title>
+    {% endblock %}
+
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="{% url 'home:index' %}"><img src="/static/img/logo.jpg" alt="" style="min-width:150px;"></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn__widget">
+            <a href="#">Book Now <span class="arrow_right"></span></a>
+        </div>
+        <div class="offcanvas__widget">
+            <ul>
+                <li><span class="icon_pin_alt"></span> Nagaur Road, Aau </li>
+                <li><span class="icon_phone"></span> +91 94922 98000 </li>
+                <li><span class="icon_phone"></span> +91 91164 55151 </li>
+
+            </ul>
+        </div>
+        <!--div class="offcanvas__language">
+            <img src="/static/img/lan.png" alt="">
+            <span>English</span>
+            <i class="fa fa-angle-down"></i>
+            <ul>
+                <li>English</li>
+                <li>Bangla</li>
+            </ul>
+        </div-->
+        <div class="offcanvas__auth">
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="header__top__widget">
+                            <li><span class="icon_pin_alt"></span>  Nagaur Road, Aau  </li>
+                            <li><span class="icon_phone"></span> +91 94922 98000</li>
+                            <li><span class="icon_phone"></span> +91 91164 55151</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="header__top__right">
+                            <div class="header__top__auth">
+                                <ul>
+                                    <li><a href="{% url 'home:login' %}">Login</a></li>
+                                    <li><a href="{% url 'home:register' %}">Register</a></li> to Order Now !!!
+                                </ul>
+                            </div>
+                            <!--div class="header__top__language">
+                                <img src="/static/img/lan.png" alt="">
+                                <span>English</span>
+                                <i class="fa fa-angle-down"></i>
+                                <ul>
+                                    <li>English</li>
+                                    <li>Bangla</li>
+                                </ul>
+                            </div-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav__option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="header__logo">
+                            <a href="{% url 'home:index' %}"> <img src="/static/img/logo.jpg" alt="" style="min-width:250px; max-width:300px;"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="header__nav">
+
+
+                                {% block nav %}
+                            <nav class="header__menu">
+                                <ul class="menu__class">
+                                    <li class="active"><a href="{% url 'home:index' %}">Home</a></li>
+
+                                    <li><a href="{% url 'home:about' %}">About Us</a></li>
+                                    <li><a href="#"> Services </a>
+                                        <ul class="dropdown">
+                                            <li><a href="#"> Food Court  </a></li>
+                                            <li><a href="#"> Rooms       </a></li>
+                                            <li><a href="{% url 'order:index' %}"> Menu </a></li>
+                                            <li><a href="{% url 'order:index' %}"> Order Food </a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#"> My Account </a>
+                                        <ul class="dropdown">
+                                         {% if request.user.is_authenticated %}
+                                            <li> <a href="{% url 'home:logout' %}"> Logout </a></li>
+                                         {% else %}
+                                            <li><a href="{% url 'home:login' %}"> Login </a> </li>
+                                            <li><a href="{% url 'home:register' %}"> Register </a> </li>
+                                         {% endif %}
+
+                                            <li><a href="{% url 'order:cart-view' %}"> My Cart </a></li>
+                                            <li><a href="#"> My Orders  </a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="{% url 'home:contact' %}"> Contact </a></li>
+                                </ul>
+                            </nav>
+
+                                {% endblock %}
+
+
+                            <div class="header__nav__widget">
+                                <a href="{% url 'home:book' %}" >Book Now <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open">
+                    <span class="fa fa-bars"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    {% block body %}
+
+    {% endblock %}
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="/static/img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"> <img src="/static/img/logo.jpg" alt=""> </a>
+                            </div>
+                            <h4> +91 94922 98000 </h4>
+                            <h4> +91 91164 55151 </h4>
+                            <h4> Nagaur Road, Aau </h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1 col-md-5 offset-md-1 col-sm-6">
+                        <div class="footer__widget">
+                            <h4> Quick Links </h4>
+                            <ul>
+                                <li><a href="{% url 'home:index' %}">    Home      </a></li>
+                                <li><a href="{% url 'order:index' %}">   Order Food </a></li>
+                                <li><a href="{% url 'home:about' %}">    About   </a></li>
+                                <li><a href="#">Review</a></li>
+                                <li><a href="{% url 'home:contact' %}">  Contact   </a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Our Room</a></li>
+                                <li><a href="#">Restaurants</a></li>
+                                <li><a href="#">Payments</a></li>
+                                <li><a href="#">Events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-8 col-sm-12">
+                        <div class="footer__newslatter">
+                            <h4> Rate Our Services </h4>
+                            <form action="#">
+                                <input type="text" placeholder="Your E-mail Address">
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                        <div class="footer__about">
+                             <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Srijan Tech Solutions  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <script src="/static/js/jquery-ui.min.js"></script>
+    <script src="/static/js/jquery.slicknav.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>
